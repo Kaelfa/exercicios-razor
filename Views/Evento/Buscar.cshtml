@@ -1,0 +1,39 @@
+@using aspnet_mvc.ViewModels
+@model BuscaEventoViewModel
+@{
+    ViewData["Title"] = "Busca de Evento";
+}
+
+<h1>BUSCAR EVENTO</h1>
+
+<form asp-action="Buscar"" method="post">
+    <input asp-for="TermoBusca" type="text" placeholder="NOME!">
+    <button type="submit">Pesquisar</button>
+</form>
+
+@if (Model.Resultado.Any())
+{
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Descricao</th>
+            <th>Local</th>
+            <th>Data</th>
+            <th>Vagas</th>
+            <th>Preco</th>
+        </tr>
+        @foreach(Evento e in Model.Resultado)
+        {
+            <tr>
+                <td>@e.Id</td>
+                <td>@e.Nome</td>
+                <td>@e.Descricao</td>
+                <td>@e.Local</td>
+                <td>@e.DataEvento</td>
+                <td>@e.QuantidadeVagas</td>
+                <td>@e.ValorIngresso.ToString(format: "C")</td>
+            </tr>
+        }
+    </table>
+}

@@ -1,0 +1,42 @@
+@model Evento
+@{
+    ViewData["Title"] = "Cadastro de Eventos";
+}
+
+<h1>CADASTRAR EVENTO</h1>
+<div asp-validation-summary="All" class="Error">
+    <form asp-action="Criar" method="post">
+        <p>
+            <label asp-for="Nome"></label>
+            <input type="text" asp-for="Nome">
+            <span asp-validation-for="Nome" class="Error"></span>
+        </p>
+        <p>
+            <label asp-for="Descricao"></label>
+            <input type="text" asp-for="Descricao">
+            <span asp-validation-for="Descricao" class="Error"></span>
+        </p>
+        <p>
+            <label asp-for="Local"></label>
+            <input type="text" asp-for="Local">
+            <span asp-validation-for="Local" class="Error"></span>
+        </p>
+        <p>
+            <label asp-for="DataEvento"></label>
+            <input type="date" asp-for="DataEvento">
+            <span asp-validation-for="DataEvento" class="Error"></span>
+        </p>
+        <p>
+            <label asp-for="QuantidadeVagas"></label>
+            <input type="number" asp-for="QuantidadeVagas">
+            <span asp-validation-for="QuantidadeVagas" class="Error"></span>
+        </p>
+    </p>
+    <p>
+        <label asp-for="ValorIngresso"></label>
+        <input type="number" asp-for="ValorIngresso">
+        <span asp-validation-for="ValorIngresso" class="Error"></span>
+    </p>
+    <button type="submit">Enviar</button>
+</form>
+</div>
